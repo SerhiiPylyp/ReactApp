@@ -1,7 +1,16 @@
+import {Content} from "./content";
+import {HeaderStyled} from "./styled";
+import React from "react";
+import {ContextWrapper} from "../context/ContextWrapper";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">ToDoList</div>
+      <div>
+          <HeaderStyled>To Do</HeaderStyled>
+          <ContextWrapper>
+              <Content/>
+          </ContextWrapper>
+      </div>
   );
 }
 
