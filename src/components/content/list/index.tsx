@@ -1,14 +1,15 @@
-import React, {useState, useContext} from "react";
-import {ListName, ListStyled, AddTask, Title, ListTrash} from "./styled";
-import {Task} from "./Task";
+import {useState, useContext, FC, ChangeEvent} from "react";
+import {ListName, ListStyled, AddTask, Title, ListTrash, TaskBlock} from "./styled";
+import {TaskComponent} from "./TaskComponent";
 import {ToDoContext} from "../../../context";
+import {List} from "../../../context/types";
 
-export const List = ({list}) => {
+export const ListComponent: FC<{ list: List }> = ({list}) => {
     const [listName, setListName] = useState(list.name);
     const [addTask, setTask] = useState('');
     const {setLists} = useContext(ToDoContext);
 
-    const onChangeListName = (e) => {
+    const onChangeListName = (e: ChangeEvent<HTMLInputElement>) => {
         setListName(e.target.value)
     }
     const onBlurListName = () => setLists((oldList) => ({
@@ -25,7 +26,7 @@ export const List = ({list}) => {
         })
     }
 
-    const onChangeAddTask = (e) => {
+    const onChangeAddTask = (e: ChangeEvent<HTMLInputElement>) => {
         setTask(e.target.value)
     }
 
@@ -42,18 +43,28 @@ export const List = ({list}) => {
         }
         setTask('')
     }
+
+    const keyPressCheck = (e, callback) => {
+        if(e.charCode === 13) callback()
+    }
     return (
         <ListStyled id={list.id}>
             <Title>
-                <ListName value={listName} onChange={onChangeListName} onBlur={onBlurListName}/>
+                <ListName
+                    value={listName}
+                    onChange={onChangeListName}
+                    onBlur={onBlurListName}
+                    onKeyPress={(e) => keyPressCheck(e, onBlurListName)}
+                />
                 <ListTrash onClick={deleteList}/>
             </Title>
-            <div>
+            <TaskBlock>
                 {
-                    Object.values(list.tasks).map((task) => <Task list={list} task={task} key={task.id}/>)
+                    Object.values(list.tasks).map((task) => <TaskComponent list={list} task={task} key={task.id}/>)
                 }
-            </div>
-            <AddTask value={addTask} onChange={onChangeAddTask} onBlur={addNewTask}/>
+            </TaskBlock>
+            <AddTask value={addTask} onChange={onChangeAddTask} onBlur={addNewTask}
+                     onKeyPress={(e) => keyPressCheck(e, addNewTask)}/>
         </ListStyled>
     )
 }

@@ -1,9 +1,9 @@
 import {Content} from "./content";
 import {HeaderStyled} from "./styled";
-import React from "react";
 import {ContextWrapper} from "../context/ContextWrapper";
+import {FC} from "react";
 
-const App = () => {
+const App: FC = () => {
   return (
       <div>
           <HeaderStyled>To Do</HeaderStyled>
