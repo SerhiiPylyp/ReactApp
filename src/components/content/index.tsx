@@ -1,10 +1,11 @@
 import {EmptyContent, AddList, ContentStyle} from "./styled";
-import {useContext, useState} from "react";
+import {FC, useContext, useState} from "react";
 import {ToDoContext} from "../../context";
-import {List} from "./list/index";
-export const Content = () => {
+import {ListComponent} from "./list";
+import {List, Lists} from "../../context/types";
+export const Content: FC = (): JSX.Element => {
     const {lists, setLists} = useContext(ToDoContext);
-    const listMap = Object.values(lists);
+    const listMap: List[] = Object.values(lists);
 
     const addNewList = () => {
         const defaultValue = {
@@ -12,13 +13,13 @@ export const Content = () => {
             name: 'Name',
             tasks: {},
         }
-        setLists((oldList) => ({...oldList, [defaultValue.id]: defaultValue}))
+        setLists((oldList: Lists):Lists => ({...oldList, [defaultValue.id]: defaultValue}))
     }
 
     return (
         <ContentStyle>
             <EmptyContent isVisible={!listMap.length}>you don't have list</EmptyContent>
-            {listMap.map((item) => <List list={item} key={item.id} />)}
+            {listMap.map((item) => <ListComponent list={item} key={item.id} />)}
             <AddList onClick={addNewList}>+</AddList>
         </ContentStyle>
     )

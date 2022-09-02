@@ -6,7 +6,8 @@ export const ContentStyle = styled.div`
     height: calc(100vh - 69px);
     display: flex;
     align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 `;
 export const EmptyContent = styled.div`
   display: ${({isVisible}) => isVisible ? 'flex' : 'none'};

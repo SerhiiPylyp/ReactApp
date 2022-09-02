@@ -1,8 +1,9 @@
-import React, {useState, useContext} from "react";
-import {TaskContainer, InputTask, Check, TaskTrash} from "./styled";
+import {ChangeEvent, FC, useContext, useState} from "react";
+import {Check, InputTask, TaskContainer, TaskTrash} from "./styled";
 import {ToDoContext} from "../../../context";
+import {List, Task, TaskKey} from "../../../context/types";
 
-export const Task = ({task, list}) => {
+export const TaskComponent: FC<{ task: Task, list: List}> = ({task, list}) => {
     const {setLists} = useContext(ToDoContext);
     const [taskName, setTaskName] = useState(task.name);
     const [taskCheckbox, setTaskCheckbox] = useState(task.checked);
@@ -17,10 +18,10 @@ export const Task = ({task, list}) => {
                         )}
         }))
     }
-    const onChangeTaskName = (e) => {
+    const onChangeTaskName = (e: ChangeEvent<HTMLInputElement>) => {
         setTaskName(e.target.value)
     }
-    const onBlurTaskName = (key, value) => {
+    const onBlurTaskName = (key: TaskKey, value: string | boolean) => {
         if (taskName) {
             setLists((oldList) => ({
                 ...oldList, [list.id]: {...list, tasks: {...list.tasks, [task.id]: {...task, [key]: [value]}}}
@@ -30,12 +31,16 @@ export const Task = ({task, list}) => {
     }
     const onCLickCheckbox = (e) => {
         setTaskCheckbox(e.target.checked);
-        onBlurTaskName('checked', taskCheckbox)
+        onBlurTaskName(TaskKey.checked, taskCheckbox)
     }
     return(
         <TaskContainer id={task.id}>
             <Check type="checkbox" checked={taskCheckbox} onClick={onCLickCheckbox}/>
-            <InputTask value={taskName} onChange={onChangeTaskName} onBlur={() => onBlurTaskName('name', taskName)}/>
+            <InputTask
+                value={taskName}
+                onChange={onChangeTaskName}
+                onBlur={() => onBlurTaskName(TaskKey.name, taskName)}
+            />
             <TaskTrash onClick={removeTask}/>
         </TaskContainer>
     )

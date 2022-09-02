@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import trash from "../../../img/trash.png";
+// @ts-ignore
+import * as trash from '../../../img/trash.png';
 
 export const ListStyled = styled.div`
   width: 600px;
@@ -32,7 +33,7 @@ export const ListName = styled(Input)`
 `;
 
 export const AddTask = styled(Input)`
-  margin: auto 2px 10px;
+  margin: 2px 2px 10px;
 `;
 
 
@@ -43,6 +44,7 @@ export const TaskContainer = styled.div`
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  border-bottom: 1px solid gray;
 `;
 
 export const Check = styled.input`
@@ -51,7 +53,7 @@ export const Check = styled.input`
 
 export const InputTask = styled.input`
   box-sizing: border-box;
-  height: 25px;
+  height: 24px;
   width: 90%;
   border: none;
 `;
@@ -66,4 +68,10 @@ export const TaskTrash = styled.div`
 export const ListTrash = styled(TaskTrash)`
   width: 25px;
   height: 25px;
+`;
+export const TaskBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  flex: auto;
 `;
