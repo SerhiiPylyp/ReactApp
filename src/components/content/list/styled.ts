@@ -1,6 +1,6 @@
 import styled from "styled-components";
 // @ts-ignore
-import * as trash from '../../../img/trash.png';
+import trash from '../../../img/trash.png';
 
 export const ListStyled = styled.div`
   width: 600px;

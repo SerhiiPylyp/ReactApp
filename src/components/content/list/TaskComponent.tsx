@@ -2,6 +2,7 @@ import {ChangeEvent, FC, useContext, useState} from "react";
 import {Check, InputTask, TaskContainer, TaskTrash} from "./styled";
 import {ToDoContext} from "../../../context";
 import {List, Task, TaskKey} from "../../../context/types";
+import React from "react";
 
 export const TaskComponent: FC<{ task: Task, list: List}> = ({task, list}) => {
     const {setLists} = useContext(ToDoContext);
@@ -35,7 +36,7 @@ export const TaskComponent: FC<{ task: Task, list: List}> = ({task, list}) => {
     }
     return(
         <TaskContainer id={task.id}>
-            <Check type="checkbox" checked={taskCheckbox} onClick={onCLickCheckbox}/>
+            <Check type="checkbox" checked={taskCheckbox} onChange={onCLickCheckbox}/>
             <InputTask
                 value={taskName}
                 onChange={onChangeTaskName}
