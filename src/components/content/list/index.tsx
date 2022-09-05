@@ -3,6 +3,7 @@ import {ListName, ListStyled, AddTask, Title, ListTrash, TaskBlock} from "./styl
 import {TaskComponent} from "./TaskComponent";
 import {ToDoContext} from "../../../context";
 import {List} from "../../../context/types";
+import React from "react";
 
 export const ListComponent: FC<{ list: List }> = ({list}) => {
     const [listName, setListName] = useState(list.name);
