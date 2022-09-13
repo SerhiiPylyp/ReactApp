@@ -3,6 +3,8 @@ import {FC, useContext, useState} from "react";
 import {ToDoContext} from "../../context";
 import {ListComponent} from "./list";
 import {List, Lists} from "../../context/types";
+import React from "react";
+
 export const Content: FC = (): JSX.Element => {
     const {lists, setLists} = useContext(ToDoContext);
     const listMap: List[] = Object.values(lists);
