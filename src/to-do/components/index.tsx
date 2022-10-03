@@ -4,7 +4,7 @@ import {ContextWrapper} from "../context/ContextWrapper";
 import {FC} from "react";
 import React from "react";
 
-const App: FC = () => {
+const ToDo: FC = () => {
   return (
       <div>
           <HeaderStyled>To Do</HeaderStyled>
@@ -15,4 +15,4 @@ const App: FC = () => {
   );
 }
 
-export default App;
+export default ToDo;
