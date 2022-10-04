@@ -22,4 +22,5 @@ export const  Button = styled(Link)`
   text-decoration: none;
   font-size: 25px;
   background-color: ${({color}) => color };
+  text-align: center;
 `;
