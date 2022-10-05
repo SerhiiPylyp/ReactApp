@@ -45,13 +45,24 @@ export const Bmi = styled.span`
 
 export const Health = styled.span`
   font-size: 30px;
-  color: #1890ff;
+  color: ${({ color }) => color};
 `;
 
 export const Back = styled(Link)`
   position: absolute;
-  top: 30px;
   left: 30px;
   font-size: 20px;
   color: black;
+  
+`;
+export const Title = styled.span`
+  font-size: 30px;
+  position: relative;
+`;
+
+export const Header = styled.header`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
