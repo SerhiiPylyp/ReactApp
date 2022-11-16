@@ -20,8 +20,7 @@
   "scripts": {
     "start": "./node_modules/.bin/react-scripts start",
     "build": "./node_modules/.bin/react-scripts build",
-    "test": "./node_modules/.bin/react-scripts test",
-    "eject": "./node_modules/.bin/react-scripts eject"
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.3.1",
+    "ts-jest": "^29.0.3"
   }
 }
