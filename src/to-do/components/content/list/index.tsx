@@ -65,7 +65,7 @@ export const ListComponent: FC<{ list: List }> = ({list}) => {
                     Object.values(list.tasks).map((task) => <TaskComponent list={list} task={task} key={task.id}/>)
                 }
             </TaskBlock>
-            <AddTask value={addTask} onChange={onChangeAddTask} onBlur={addNewTask}
+            <AddTask value={addTask} placeholder={'add new task'} onChange={onChangeAddTask} onBlur={addNewTask}
                      onKeyPress={(e) => keyPressCheck(e, addNewTask)}/>
         </ListStyled>
     )
