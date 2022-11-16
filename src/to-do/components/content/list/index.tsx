@@ -4,6 +4,7 @@ import {TaskComponent} from "./TaskComponent";
 import {ToDoContext} from "../../../context";
 import {List} from "../../../context/types";
 import React from "react";
+import {generateUniqueId} from "../../../helpers";
 
 export const ListComponent: FC<{ list: List }> = ({list}) => {
     const [listName, setListName] = useState(list.name);
@@ -34,7 +35,7 @@ export const ListComponent: FC<{ list: List }> = ({list}) => {
     const addNewTask = () => {
         if(addTask) {
             const defaultValue = {
-                id: Math.floor(Math.random() * 1000000),
+                id: generateUniqueId(),
                 name: addTask,
                 checked: false,
             }

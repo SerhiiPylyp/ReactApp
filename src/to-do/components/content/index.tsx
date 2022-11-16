@@ -1,9 +1,10 @@
 import {EmptyContent, AddList, ContentStyle} from "./styled";
-import {FC, useContext, useState} from "react";
+import {FC, useContext} from "react";
 import {ToDoContext} from "../../context";
 import {ListComponent} from "./list";
 import {List, Lists} from "../../context/types";
 import React from "react";
+import {generateUniqueId} from "../../helpers";
 
 export const Content: FC = (): JSX.Element => {
     const {lists, setLists} = useContext(ToDoContext);
@@ -11,7 +12,7 @@ export const Content: FC = (): JSX.Element => {
 
     const addNewList = () => {
         const defaultValue = {
-            id: Math.floor(Math.random() * 1000000),
+            id: generateUniqueId(),
             name: 'Name',
             tasks: {},
         }

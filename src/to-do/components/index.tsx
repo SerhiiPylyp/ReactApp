@@ -3,11 +3,14 @@ import {HeaderStyled} from "./styled";
 import {ContextWrapper} from "../context/ContextWrapper";
 import {FC} from "react";
 import React from "react";
+import {Back} from "./styled";
+import {LeftOutlined} from "@ant-design/icons";
 
-const App: FC = () => {
+const ToDo: FC = () => {
   return (
       <div>
           <HeaderStyled>To Do</HeaderStyled>
+          <Back to="/" ><LeftOutlined /></Back>
           <ContextWrapper>
               <Content/>
           </ContextWrapper>
@@ -15,4 +18,4 @@ const App: FC = () => {
   );
 }
 
-export default App;
+export default ToDo;

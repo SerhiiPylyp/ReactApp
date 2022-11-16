@@ -4,7 +4,7 @@ export interface Lists {
 
 export interface List {
     id: number,
-        name: string,
+    name: string,
     tasks: Tasks,
 }
 
