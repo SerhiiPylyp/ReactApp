@@ -8,7 +8,7 @@ export const FitnessCalculator: FC = () => {
     const [weight, setWeight] = useState('');
     const [age, setAge] = useState('');
     const [result, setResult] = useState(null);
-    const [loading, setLoading] = useState();
+    const [loading, setLoading] = useState(false);
 
     const onChange = (setValue, value) => {
         setValue(value);
