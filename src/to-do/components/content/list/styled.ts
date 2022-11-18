@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ListStyled = styled.div`
   height: 500px;
@@ -43,7 +43,6 @@ export const AddTask = styled(Input)`
   outline: none;
 `;
 
-
 export const TaskContainer = styled.div`
   background-color: white;
   height: 25px;
@@ -86,7 +85,7 @@ export const InputTask = styled.input`
   border: none;
   outline: none;
   background-color: inherit;
-  ${({checked}) => checked && ({textDecoration: 'line-through'})}
+  ${({ checked }) => checked && { textDecoration: 'line-through' }}
 `;
 
 export const TaskBlock = styled.div`
@@ -95,15 +94,15 @@ export const TaskBlock = styled.div`
   overflow: auto;
   flex: auto;
   &::-webkit-scrollbar {
-    width: 10px;               /* ширина всей полосы прокрутки */
+    width: 10px;
   }
 
   &::-webkit-scrollbar-track {
-    background: black;        /* цвет зоны отслеживания */
+    background: black;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(255,255,255,0.7);    /* цвет бегунка */
-    border: 2px solid black;  /* отступ вокруг бегунка */
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid black;
   }
 `;

@@ -60,6 +60,12 @@ export const Health = styled.span`
   color: ${({ color }) => color};
 `;
 
+export const Back = styled(Link)`
+  position: absolute;
+  left: 30px;
+  font-size: 20px;
+  color: black;
+`;
 export const Title = styled.span`
   font-size: 30px;
   position: relative;
