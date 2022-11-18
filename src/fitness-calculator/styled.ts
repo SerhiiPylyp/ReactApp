@@ -2,31 +2,45 @@ import styled from 'styled-components';
 import { InputNumber } from 'antd';
 import { Link } from 'react-router-dom';
 
+export const FitnessCalculatorContainer = styled.div`
+  min-width: 320px;
+  padding: 0 15px 15px;
+`;
+
 export const Container = styled.form`
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin: 40px auto;
+  margin: 15px auto 0;
+
+  button,
+  input {
+    border-radius: 7px;
+  }
 `;
 
 export const Fields = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 100%;
+  max-width: 500px;
   height: 220px;
+  padding-top: 15px;
+  box-sizing: border-box;
 `;
 
 export const Result = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  width: 100%;
+  max-width: 500px;
   height: 230px;
   flex-direction: column;
   border: 1px solid #40a9ff;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 35px;
 `;
 
 export const InputBlock = styled.div`
@@ -57,6 +71,10 @@ export const Back = styled(Link)`
 export const Title = styled.span`
   font-size: 30px;
   position: relative;
+
+  @media (max-width: 600px) {
+    font-size: 25px;
+  }
 `;
 
 export const Header = styled.header`
@@ -64,4 +82,6 @@ export const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #1890ff;
+  padding: 15px 0;
 `;

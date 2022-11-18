@@ -52,6 +52,10 @@ export const TaskContainer = styled.div`
   box-sizing: border-box;
   border-bottom: 1px solid gray;
 
+  .taskTrash {
+    visibility: hidden;
+  }
+
   &:hover {
     opacity: 0.95;
     .taskTrash {
@@ -96,21 +100,22 @@ export const ListTrash = styled(TaskTrash)`
   height: 25px;
   visibility: visible;
 `;
+
 export const TaskBlock = styled.div`
   display: flex;
   flex-direction: column;
   overflow: auto;
   flex: auto;
   &::-webkit-scrollbar {
-    width: 10px; /* ширина всей полосы прокрутки */
+    width: 10px;
   }
 
   &::-webkit-scrollbar-track {
-    background: black; /* цвет зоны отслеживания */
+    background: black;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.7); /* цвет бегунка */
-    border: 2px solid black; /* отступ вокруг бегунка */
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid black;
   }
 `;

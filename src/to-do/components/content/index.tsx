@@ -20,7 +20,7 @@ export const Content: FC = (): JSX.Element => {
 
   return (
     <ContentStyle>
-      <EmptyContent isVisible={!listMap.length}>{'you don\'t have list"'}</EmptyContent>
+      <EmptyContent isVisible={!listMap.length}>{"you don't have list"}</EmptyContent>
       {listMap.map((item) => (
         <ListComponent list={item} key={item.id} />
       ))}

@@ -1,9 +1,10 @@
 import React, { useState, useContext, FC, ChangeEvent } from 'react';
-import { ListName, ListStyled, AddTask, Title, ListTrash, TaskBlock } from './styled';
+import { ListName, ListStyled, AddTask, Title, TaskBlock } from './styled';
 import { TaskComponent } from './TaskComponent';
 import { ToDoContext } from '../../../context';
 import { List } from '../../../context/types';
 import { generateUniqueId } from '../../../helpers';
+import { DeleteFilled } from '@ant-design/icons';
 
 export const ListComponent: FC<{ list: List }> = ({ list }) => {
   const [listName, setListName] = useState(list.name);
@@ -59,7 +60,9 @@ export const ListComponent: FC<{ list: List }> = ({ list }) => {
           onBlur={onBlurListName}
           onKeyPress={(e) => keyPressCheck(e, onBlurListName)}
         />
-        <ListTrash onClick={deleteList} />
+        <div onClick={deleteList}>
+          <DeleteFilled style={{ fontSize: '25px' }} />
+        </div>
       </Title>
       <TaskBlock>
         {Object.values(list.tasks).map((task) => (
