@@ -3,7 +3,7 @@ import { Check, InputTask, TaskContainer, Uncheck } from './styled';
 import { ToDoContext } from '../../../context';
 import { List, Task, TaskKey } from '../../../context/types';
 import { Checkbox } from './Checkbox';
-import {DeleteOutlined} from "@ant-design/icons";
+import { DeleteOutlined } from '@ant-design/icons';
 
 export const TaskComponent: FC<{ task: Task; list: List }> = ({ task, list }) => {
   const { setLists } = useContext(ToDoContext);
@@ -41,23 +41,25 @@ export const TaskComponent: FC<{ task: Task; list: List }> = ({ task, list }) =>
     onBlurTaskName(TaskKey.checked, e.target.checked);
   };
 
-    return(
-        <TaskContainer id={task.id} >
-            <Check
-                type="checkbox"
-                checked={taskCheckbox}
-                name={`checkbox${task.id}`}
-                id={`checkbox${task.id}`}
-                onChange={onCLickCheckbox}
-            />
-            <label htmlFor={`checkbox${task.id}`}>{task.checked ? <Checkbox /> : <Uncheck/>}</label>
-            <InputTask
-                checked={taskCheckbox}
-                value={taskName}
-                onChange={onChangeTaskName}
-                onBlur={() => onBlurTaskName(TaskKey.name, taskName)}
-            />
-            <div className='taskTrash' onClick={removeTask}><DeleteOutlined /></div>
-        </TaskContainer>
-    )
-}
+  return (
+    <TaskContainer id={task.id}>
+      <Check
+        type='checkbox'
+        checked={taskCheckbox}
+        name={`checkbox${task.id}`}
+        id={`checkbox${task.id}`}
+        onChange={onCLickCheckbox}
+      />
+      <label htmlFor={`checkbox${task.id}`}>{task.checked ? <Checkbox /> : <Uncheck />}</label>
+      <InputTask
+        checked={taskCheckbox}
+        value={taskName}
+        onChange={onChangeTaskName}
+        onBlur={() => onBlurTaskName(TaskKey.name, taskName)}
+      />
+      <div className='taskTrash' onClick={removeTask}>
+        <DeleteOutlined />
+      </div>
+    </TaskContainer>
+  );
+};

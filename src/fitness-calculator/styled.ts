@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import {InputNumber} from "antd";
+import styled from 'styled-components';
+import { InputNumber } from 'antd';
+import { Link } from 'react-router-dom';
 
 export const FitnessCalculatorContainer = styled.div`
   min-width: 320px;
@@ -12,8 +13,9 @@ export const Container = styled.form`
   flex-direction: column;
   align-items: center;
   margin: 15px auto 0;
-  
-  button, input {
+
+  button,
+  input {
     border-radius: 7px;
   }
 `;

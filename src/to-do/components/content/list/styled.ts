@@ -55,7 +55,7 @@ export const TaskContainer = styled.div`
   .taskTrash {
     visibility: hidden;
   }
-  
+
   &:hover {
     opacity: 0.95;
     .taskTrash {
@@ -86,6 +86,19 @@ export const InputTask = styled.input`
   outline: none;
   background-color: inherit;
   ${({ checked }) => checked && { textDecoration: 'line-through' }}
+`;
+
+export const TaskTrash = styled.div`
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  visibility: hidden;
+`;
+
+export const ListTrash = styled(TaskTrash)`
+  width: 25px;
+  height: 25px;
+  visibility: visible;
 `;
 
 export const TaskBlock = styled.div`
