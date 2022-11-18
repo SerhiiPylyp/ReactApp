@@ -1,6 +1,6 @@
-import {InitialState} from "./types";
+import { InitialState } from './types'
 
 export const initialState: InitialState = {
-    lists: {},
-    setLists: () => {},
+  lists: {},
+  setLists: () => {},
 }

@@ -1,6 +1,4 @@
-import styled from "styled-components";
-// @ts-ignore
-import trash from '../../../img/trash.png';
+import styled from 'styled-components'
 
 export const ListStyled = styled.div`
   height: 500px;
@@ -17,7 +15,7 @@ export const ListStyled = styled.div`
   @media (min-width: 900px) {
     max-width: 600px;
   }
-`;
+`
 
 export const Title = styled.div`
   background-color: white;
@@ -27,24 +25,23 @@ export const Title = styled.div`
   box-sizing: border-box;
   display: flex;
   align-items: center;
-`;
+`
 export const Input = styled.input`
   display: flex;
   border: none;
   box-sizing: border-box;
-`;
+`
 export const ListName = styled(Input)`
   height: 50px;
   width: 95%;
   outline: none;
   padding-left: 15px;
-`;
+`
 
 export const AddTask = styled(Input)`
   margin: 2px 2px 10px;
   outline: none;
-`;
-
+`
 
 export const TaskContainer = styled.div`
   background-color: white;
@@ -54,18 +51,18 @@ export const TaskContainer = styled.div`
   align-items: inherit;
   box-sizing: border-box;
   border-bottom: 1px solid gray;
-  
-  &:hover{
+
+  &:hover {
     opacity: 0.95;
     .taskTrash {
       visibility: visible;
     }
   }
-`;
+`
 
 export const Check = styled.input`
   display: none;
-`;
+`
 
 export const Uncheck = styled.span`
   border: 2px solid black;
@@ -75,7 +72,7 @@ export const Uncheck = styled.span`
   display: flex;
   margin: 3px;
   border-radius: 3px;
-`;
+`
 
 export const InputTask = styled.input`
   box-sizing: border-box;
@@ -84,37 +81,36 @@ export const InputTask = styled.input`
   border: none;
   outline: none;
   background-color: inherit;
-  ${({checked}) => checked && ({textDecoration: 'line-through'})}
-`;
+  ${({ checked }) => checked && { textDecoration: 'line-through' }}
+`
 
 export const TaskTrash = styled.div`
-  background-image: url(${trash});
   width: 20px;
   height: 20px;
   background-size: cover;
   visibility: hidden;
-`;
+`
 
 export const ListTrash = styled(TaskTrash)`
   width: 25px;
   height: 25px;
   visibility: visible;
-`;
+`
 export const TaskBlock = styled.div`
   display: flex;
   flex-direction: column;
   overflow: auto;
   flex: auto;
   &::-webkit-scrollbar {
-    width: 10px;               /* ширина всей полосы прокрутки */
+    width: 10px; /* ширина всей полосы прокрутки */
   }
 
   &::-webkit-scrollbar-track {
-    background: black;        /* цвет зоны отслеживания */
+    background: black; /* цвет зоны отслеживания */
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(255,255,255,0.7);    /* цвет бегунка */
-    border: 2px solid black;  /* отступ вокруг бегунка */
+    background-color: rgba(255, 255, 255, 0.7); /* цвет бегунка */
+    border: 2px solid black; /* отступ вокруг бегунка */
   }
-`;
+`
