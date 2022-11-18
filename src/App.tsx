@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
-import ToDo from './to-do/components'
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
-import { FitnessCalculator } from './fitness-calculator'
-import Links from './ links'
+import React, { FC } from 'react';
+import ToDo from './to-do/components';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { FitnessCalculator } from './fitness-calculator';
+import Links from './ links';
 
-import 'antd/dist/antd.css'
+import 'antd/dist/antd.css';
 
 const App: FC = () => {
   return (
@@ -16,7 +16,7 @@ const App: FC = () => {
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;

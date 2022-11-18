@@ -1,6 +1,6 @@
-import { Button } from 'antd'
-import React, { FC, useState } from 'react'
-import axios, { AxiosResponse } from 'axios'
+import { Button } from 'antd';
+import React, { FC, useState } from 'react';
+import axios, { AxiosResponse } from 'axios';
 import {
   Result,
   Container,
@@ -12,24 +12,24 @@ import {
   Back,
   Title,
   Header,
-} from './styled'
-import { LeftOutlined } from '@ant-design/icons'
-import { HealthEnum, ResultI } from './types'
+} from './styled';
+import { LeftOutlined } from '@ant-design/icons';
+import { HealthEnum, ResultI } from './types';
 
 export const FitnessCalculator: FC = () => {
-  const [height, setHeight] = useState('')
-  const [weight, setWeight] = useState('')
-  const [age, setAge] = useState('')
-  const [result, setResult] = useState<ResultI>()
-  const [loading, setLoading] = useState(false)
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+  const [age, setAge] = useState('');
+  const [result, setResult] = useState<ResultI>();
+  const [loading, setLoading] = useState(false);
 
   const onChange = (setValue, value) => {
-    setValue(value)
-  }
+    setValue(value);
+  };
 
   const calculate = async (e) => {
-    setLoading(true)
-    e.preventDefault()
+    setLoading(true);
+    e.preventDefault();
     await axios
       .get('https://fitness-calculator.p.rapidapi.com/bmi', {
         params: { age, weight, height },
@@ -39,12 +39,12 @@ export const FitnessCalculator: FC = () => {
         },
       })
       .then((res: AxiosResponse<{ data: ResultI }>) => {
-        setResult(res.data.data)
+        setResult(res.data.data);
       })
       .finally(() => {
-        setLoading(false)
-      })
-  }
+        setLoading(false);
+      });
+  };
 
   return (
     <>
@@ -101,5 +101,5 @@ export const FitnessCalculator: FC = () => {
         )}
       </Container>
     </>
-  )
-}
+  );
+};

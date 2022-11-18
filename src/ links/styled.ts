@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Buttons = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const Buttons = styled.div`
   height: 100vh;
   align-items: center;
   justify-content: center;
-`
+`;
 
 export const Button = styled(Link)`
   margin: 5px;
@@ -23,4 +23,4 @@ export const Button = styled(Link)`
   font-size: 25px;
   background-color: ${({ color }) => color};
   text-align: center;
-`
+`;

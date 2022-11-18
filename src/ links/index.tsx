@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import { Button, Buttons } from './styled'
+import React, { FC } from 'react';
+import { Button, Buttons } from './styled';
 const Links: FC = () => {
   return (
     <Buttons>
@@ -10,7 +10,7 @@ const Links: FC = () => {
         to-do
       </Button>
     </Buttons>
-  )
-}
+  );
+};
 
-export default Links
+export default Links;

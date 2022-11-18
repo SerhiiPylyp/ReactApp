@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export const Checkbox = () => (
   <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -7,4 +7,4 @@ export const Checkbox = () => (
       fill='#212121'
     />
   </svg>
-)
+);

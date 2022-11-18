@@ -1,36 +1,36 @@
-import React, { useState, useContext, FC, ChangeEvent } from 'react'
-import { ListName, ListStyled, AddTask, Title, ListTrash, TaskBlock } from './styled'
-import { TaskComponent } from './TaskComponent'
-import { ToDoContext } from '../../../context'
-import { List } from '../../../context/types'
-import { generateUniqueId } from '../../../helpers'
+import React, { useState, useContext, FC, ChangeEvent } from 'react';
+import { ListName, ListStyled, AddTask, Title, ListTrash, TaskBlock } from './styled';
+import { TaskComponent } from './TaskComponent';
+import { ToDoContext } from '../../../context';
+import { List } from '../../../context/types';
+import { generateUniqueId } from '../../../helpers';
 
 export const ListComponent: FC<{ list: List }> = ({ list }) => {
-  const [listName, setListName] = useState(list.name)
-  const [addTask, setTask] = useState('')
-  const { setLists } = useContext(ToDoContext)
+  const [listName, setListName] = useState(list.name);
+  const [addTask, setTask] = useState('');
+  const { setLists } = useContext(ToDoContext);
 
   const onChangeListName = (e: ChangeEvent<HTMLInputElement>) => {
-    setListName(e.target.value)
-  }
+    setListName(e.target.value);
+  };
   const onBlurListName = () =>
     setLists((oldList) => ({
       ...oldList,
       [list.id]: { ...list, name: listName },
-    }))
+    }));
 
   const deleteList = () => {
     setLists((oldLists) => {
       return Object.entries(oldLists).reduce((acc, curr) => {
-        if (+curr[0] === list.id) return acc
-        return { ...acc, [curr[0]]: curr[1] }
-      }, {})
-    })
-  }
+        if (+curr[0] === list.id) return acc;
+        return { ...acc, [curr[0]]: curr[1] };
+      }, {});
+    });
+  };
 
   const onChangeAddTask = (e: ChangeEvent<HTMLInputElement>) => {
-    setTask(e.target.value)
-  }
+    setTask(e.target.value);
+  };
 
   const addNewTask = () => {
     if (addTask) {
@@ -38,18 +38,18 @@ export const ListComponent: FC<{ list: List }> = ({ list }) => {
         id: generateUniqueId(),
         name: addTask,
         checked: false,
-      }
+      };
       setLists((oldLists) => ({
         ...oldLists,
         [list.id]: { ...list, tasks: { ...list.tasks, [defaultValue.id]: defaultValue } },
-      }))
+      }));
     }
-    setTask('')
-  }
+    setTask('');
+  };
 
   const keyPressCheck = (e, callback) => {
-    if (e.charCode === 13) callback()
-  }
+    if (e.charCode === 13) callback();
+  };
   return (
     <ListStyled id={list.id}>
       <Title>
@@ -74,5 +74,5 @@ export const ListComponent: FC<{ list: List }> = ({ list }) => {
         onKeyPress={(e) => keyPressCheck(e, addNewTask)}
       />
     </ListStyled>
-  )
-}
+  );
+};

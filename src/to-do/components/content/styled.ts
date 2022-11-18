@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const ContentStyle = styled.div`
   position: relative;
@@ -12,10 +12,10 @@ export const ContentStyle = styled.div`
   @media (max-width: 900px) {
     display: flex;
   }
-`
+`;
 export const EmptyContent = styled.div`
   display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
-`
+`;
 export const AddList = styled.div`
   position: fixed;
   bottom: 20px;
@@ -32,4 +32,4 @@ export const AddList = styled.div`
   padding-bottom: 10px;
   box-sizing: border-box;
   box-shadow: 0 2px 8px grey;
-`
+`;

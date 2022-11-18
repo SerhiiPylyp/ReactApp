@@ -1,8 +1,8 @@
-import { Content } from './content'
-import { HeaderStyled, Back } from './styled'
-import { ContextWrapper } from '../context/ContextWrapper'
-import React, { FC } from 'react'
-import { LeftOutlined } from '@ant-design/icons'
+import { Content } from './content';
+import { HeaderStyled, Back } from './styled';
+import { ContextWrapper } from '../context/ContextWrapper';
+import React, { FC } from 'react';
+import { LeftOutlined } from '@ant-design/icons';
 
 const ToDo: FC = () => {
   return (
@@ -15,7 +15,7 @@ const ToDo: FC = () => {
         <Content />
       </ContextWrapper>
     </div>
-  )
-}
+  );
+};
 
-export default ToDo
+export default ToDo;

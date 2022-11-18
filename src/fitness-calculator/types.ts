@@ -1,7 +1,7 @@
 export interface ResultI {
-  bmi: number
-  health: HealthEnum
-  healthy_bmi_range: string
+  bmi: number;
+  health: HealthEnum;
+  healthy_bmi_range: string;
 }
 
 export enum HealthEnum {
