@@ -1,8 +1,8 @@
 import React from "react";
 import ToDo from "./to-do/components";
-import {FC} from "react";
-import {BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import {FitnessCalculator} from "./fitness-calculator";
+import { FC } from "react";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { FitnessCalculator } from "./fitness-calculator";
 import Links from "./ links";
 import "antd/dist/antd.css";
 

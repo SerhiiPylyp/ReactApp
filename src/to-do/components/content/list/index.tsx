@@ -1,10 +1,11 @@
-import {useState, useContext, FC, ChangeEvent} from "react";
-import {ListName, ListStyled, AddTask, Title, ListTrash, TaskBlock} from "./styled";
+import {useState, useContext, FC, ChangeEvent, useCallback} from "react";
+import {ListName, ListStyled, AddTask, Title, TaskBlock} from "./styled";
 import {TaskComponent} from "./TaskComponent";
 import {ToDoContext} from "../../../context";
 import {List} from "../../../context/types";
 import React from "react";
 import {generateUniqueId} from "../../../helpers";
+import {DeleteFilled} from "@ant-design/icons";
 
 export const ListComponent: FC<{ list: List }> = ({list}) => {
     const [listName, setListName] = useState(list.name);
@@ -32,7 +33,7 @@ export const ListComponent: FC<{ list: List }> = ({list}) => {
         setTask(e.target.value)
     }
 
-    const addNewTask = () => {
+    const addNewTask = useCallback(() => {
         if(addTask) {
             const defaultValue = {
                 id: generateUniqueId(),
@@ -44,11 +45,12 @@ export const ListComponent: FC<{ list: List }> = ({list}) => {
             }))
         }
         setTask('')
-    }
+    }, [list, addTask])
 
     const keyPressCheck = (e, callback) => {
         if(e.charCode === 13) callback()
     }
+
     return (
         <ListStyled id={list.id}>
             <Title>
@@ -58,15 +60,20 @@ export const ListComponent: FC<{ list: List }> = ({list}) => {
                     onBlur={onBlurListName}
                     onKeyPress={(e) => keyPressCheck(e, onBlurListName)}
                 />
-                <ListTrash onClick={deleteList}/>
+                <div onClick={deleteList}><DeleteFilled style={{ fontSize: '25px', marginRight: '15px' }} /></div>
             </Title>
             <TaskBlock>
                 {
                     Object.values(list.tasks).map((task) => <TaskComponent list={list} task={task} key={task.id}/>)
                 }
             </TaskBlock>
-            <AddTask value={addTask} placeholder={'add new task'} onChange={onChangeAddTask} onBlur={addNewTask}
-                     onKeyPress={(e) => keyPressCheck(e, addNewTask)}/>
+            <AddTask
+                value={addTask}
+                placeholder="add new task"
+                onChange={onChangeAddTask}
+                onBlur={addNewTask}
+                onKeyPress={(e) => keyPressCheck(e, addNewTask)}
+            />
         </ListStyled>
     )
 }

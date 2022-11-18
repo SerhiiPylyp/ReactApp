@@ -1,9 +1,10 @@
 import {ChangeEvent, FC, useContext, useState} from "react";
-import {Check, InputTask, TaskContainer, TaskTrash, Uncheck} from "./styled";
+import {Check, InputTask, TaskContainer, Uncheck} from "./styled";
 import {ToDoContext} from "../../../context";
 import {List, Task, TaskKey} from "../../../context/types";
 import React from "react";
 import {Checkbox} from './Checkbox';
+import {DeleteOutlined} from "@ant-design/icons";
 
 export const TaskComponent: FC<{ task: Task, list: List}> = ({task, list}) => {
     const {setLists} = useContext(ToDoContext);
@@ -53,7 +54,7 @@ export const TaskComponent: FC<{ task: Task, list: List}> = ({task, list}) => {
                 onChange={onChangeTaskName}
                 onBlur={() => onBlurTaskName(TaskKey.name, taskName)}
             />
-            <TaskTrash className='taskTrash' onClick={removeTask} />
+            <div className='taskTrash' onClick={removeTask}><DeleteOutlined /></div>
         </TaskContainer>
     )
 }

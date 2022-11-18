@@ -4,13 +4,13 @@ import {ContextWrapper} from "../context/ContextWrapper";
 import {FC} from "react";
 import React from "react";
 import {Back} from "./styled";
-import {LeftOutlined} from "@ant-design/icons";
+import {ArrowLeftOutlined} from "@ant-design/icons";
 
 const ToDo: FC = () => {
   return (
       <div>
           <HeaderStyled>To Do</HeaderStyled>
-          <Back to="/" ><LeftOutlined /></Back>
+          <Back to="/" ><ArrowLeftOutlined style={{ fontSize: '30px'}}/></Back>
           <ContextWrapper>
               <Content/>
           </ContextWrapper>

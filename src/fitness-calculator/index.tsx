@@ -1,9 +1,10 @@
 import {Button} from "antd";
 import React, {FC, useState} from "react";
 import axios, {AxiosResponse} from "axios";
-import {Result, Container, Fields, InputBlock, Input, Bmi, Health, Back, Title, Header} from "./styled";
-import { LeftOutlined } from "@ant-design/icons";
+import {Result, Container, Fields, InputBlock, Input, Bmi, Health, Title, Header, FitnessCalculatorContainer} from "./styled";
+import {ArrowLeftOutlined} from "@ant-design/icons";
 import {HealthEnum, ResultI} from "./types";
+import {BackButton} from "../styled";
 
 export const FitnessCalculator: FC = () => {
     const [height, setHeight] = useState('');
@@ -30,13 +31,14 @@ export const FitnessCalculator: FC = () => {
             }
         )
             .then((res: AxiosResponse<{ data: ResultI }>) => {setResult(res.data.data)})
+            .catch((error) => console.error(error))
             .finally(() => {setLoading(false) })
     }
 
     return (
-        <>
+        <FitnessCalculatorContainer>
             <Header>
-                <Back to="/" ><LeftOutlined /></Back>
+                <BackButton to="/" ><ArrowLeftOutlined /></BackButton>
                 <Title>Fitness Calculator</Title>
             </Header>
             <Container onSubmit={calculate}>
@@ -51,7 +53,7 @@ export const FitnessCalculator: FC = () => {
                     </InputBlock>
                     <InputBlock>
                         <label>Enter age (year)</label>
-                        <Input min={1} max={120} value={age} onChange={(value) => onChange(setAge, value)}/>
+                        <Input min={1} max={80} value={age} onChange={(value) => onChange(setAge, value)}/>
                     </InputBlock>
                     <Button type="primary" htmlType="submit" disabled={!height || !weight || !age} loading={loading}>
                         Calculate BMI
@@ -72,6 +74,6 @@ export const FitnessCalculator: FC = () => {
                     )
                 }
             </Container>
-        </>
+        </FitnessCalculatorContainer>
     );
 }

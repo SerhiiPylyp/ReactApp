@@ -1,6 +1,4 @@
 import styled from "styled-components";
-// @ts-ignore
-import trash from '../../../img/trash.png';
 
 export const ListStyled = styled.div`
   height: 500px;
@@ -54,8 +52,12 @@ export const TaskContainer = styled.div`
   align-items: inherit;
   box-sizing: border-box;
   border-bottom: 1px solid gray;
+
+  .taskTrash {
+    visibility: hidden;
+  }
   
-  &:hover{
+  &:hover {
     opacity: 0.95;
     .taskTrash {
       visibility: visible;
@@ -87,19 +89,6 @@ export const InputTask = styled.input`
   ${({checked}) => checked && ({textDecoration: 'line-through'})}
 `;
 
-export const TaskTrash = styled.div`
-  background-image: url(${trash});
-  width: 20px;
-  height: 20px;
-  background-size: cover;
-  visibility: hidden;
-`;
-
-export const ListTrash = styled(TaskTrash)`
-  width: 25px;
-  height: 25px;
-  visibility: visible;
-`;
 export const TaskBlock = styled.div`
   display: flex;
   flex-direction: column;
