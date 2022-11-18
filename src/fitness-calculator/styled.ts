@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import {InputNumber} from "antd";
-import {Link} from "react-router-dom";
+import styled from 'styled-components';
+import { InputNumber } from 'antd';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.form`
   display: flex;
@@ -53,7 +53,6 @@ export const Back = styled(Link)`
   left: 30px;
   font-size: 20px;
   color: black;
-  
 `;
 export const Title = styled.span`
   font-size: 30px;

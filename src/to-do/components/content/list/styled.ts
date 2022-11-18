@@ -1,6 +1,4 @@
-import styled from "styled-components";
-// @ts-ignore
-import trash from '../../../img/trash.png';
+import styled from 'styled-components';
 
 export const ListStyled = styled.div`
   height: 500px;
@@ -45,7 +43,6 @@ export const AddTask = styled(Input)`
   outline: none;
 `;
 
-
 export const TaskContainer = styled.div`
   background-color: white;
   height: 25px;
@@ -54,8 +51,8 @@ export const TaskContainer = styled.div`
   align-items: inherit;
   box-sizing: border-box;
   border-bottom: 1px solid gray;
-  
-  &:hover{
+
+  &:hover {
     opacity: 0.95;
     .taskTrash {
       visibility: visible;
@@ -84,11 +81,10 @@ export const InputTask = styled.input`
   border: none;
   outline: none;
   background-color: inherit;
-  ${({checked}) => checked && ({textDecoration: 'line-through'})}
+  ${({ checked }) => checked && { textDecoration: 'line-through' }}
 `;
 
 export const TaskTrash = styled.div`
-  background-image: url(${trash});
   width: 20px;
   height: 20px;
   background-size: cover;
@@ -106,15 +102,15 @@ export const TaskBlock = styled.div`
   overflow: auto;
   flex: auto;
   &::-webkit-scrollbar {
-    width: 10px;               /* ширина всей полосы прокрутки */
+    width: 10px; /* ширина всей полосы прокрутки */
   }
 
   &::-webkit-scrollbar-track {
-    background: black;        /* цвет зоны отслеживания */
+    background: black; /* цвет зоны отслеживания */
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(255,255,255,0.7);    /* цвет бегунка */
-    border: 2px solid black;  /* отступ вокруг бегунка */
+    background-color: rgba(255, 255, 255, 0.7); /* цвет бегунка */
+    border: 2px solid black; /* отступ вокруг бегунка */
   }
 `;
